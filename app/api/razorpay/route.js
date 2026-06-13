@@ -34,3 +34,8 @@ export const POST = async (req) => {
                 return NextResponse.redirect(`https://universalxcafefullstackk.vercel.app/cart/?success=true`)
              }
 }
+export async function GET() {
+  return NextResponse.redirect(
+    "https://universalxcafefullstackk.vercel.app/cart"
+  );
+}
