@@ -29,8 +29,8 @@ export const POST = async (req) => {
              if(x){
                 await Payment.findOneAndUpdate({orderId:data.razorpay_order_id}, {status:true})
                 await cart.deleteOne({email:y.email})
-                return NextResponse.redirect(`http://localhost:3000/cart/?success=true`)
+                return NextResponse.redirect(`https://universalxcafefullstackk.vercel.app/?success=true`)
              }else{
-                return NextResponse.redirect(`http://localhost:3000/cart/?success=false`)
+                return NextResponse.redirect(`https://universalxcafefullstackk.vercel.app/?success=false`)
              }
 }
