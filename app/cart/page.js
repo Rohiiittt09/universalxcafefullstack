@@ -37,7 +37,7 @@ const page = () => {
                   progress: undefined,
                   theme: "light",
                 });
-            router.push("/cart")
+            router.replace("/cart")
          }
         }, [])
         
