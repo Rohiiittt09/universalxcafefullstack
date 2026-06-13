@@ -31,7 +31,7 @@ export const POST = async (req) => {
                 await cart.deleteOne({email:y.email})
                 return NextResponse.redirect(`https://universalxcafefullstackk.vercel.app/cart/?success=true`,303)
              }else{
-                return NextResponse.redirect(`https://universalxcafefullstackk.vercel.app/cart/?success=true`.303)
+                return NextResponse.redirect(`https://universalxcafefullstackk.vercel.app/cart/?success=true`,303)
              }
 }
 export async function GET() {
