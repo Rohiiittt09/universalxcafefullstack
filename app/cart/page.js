@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const page = () => {
     const [form, setform] = useState({name:"",address:"",phone:""})
+    const [load, setload] = useState(false);
     
     const {data:session,status}=useSession()
         const [cartdata, setcartdata] = useState([])
@@ -60,6 +61,7 @@ const page = () => {
             if(x){
 
                 setcartdata(x.cart)
+                setload(true);
                 let u = 0
                 x.cart.map((e)=>{
                     
@@ -86,7 +88,7 @@ const page = () => {
     "description": "Test Transaction",
     "image": "https://example.com/your_logo",
     "order_id": orderId, // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "callback_url": "http://localhost:3000//api/razorpay",
+    "callback_url": "https://universalxcafefullstackk.vercel.app/api/razorpay",
     "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
         "name": "Gaurav Kumar", //your customer's name
         "email": "gaurav.kumar@example.com",
@@ -133,6 +135,12 @@ rzp1.open();
             </div>
         )
     }
+    if (!load) {
+    return (
+       <div className="fixed inset-0 flex items-center justify-center bg-black">
+      <div className="h-16 w-16 animate-spin rounded-full border-4 border-yellow-400 border-t-transparent"></div>
+    </div>
+    )}
   return (
     
     <div className='w-screen  min-h-screen max-h-fit flex flex-col border '>
@@ -199,5 +207,3 @@ rzp1.open();
 }
 
 export default page
-
-
